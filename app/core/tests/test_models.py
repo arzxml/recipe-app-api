@@ -1,8 +1,6 @@
 """
 Tests for models.
 """
-
-from random import sample
 from django.test import TestCase
 from django.contrib.auth import get_user_model
 
@@ -30,7 +28,7 @@ class ModelTests(TestCase):
             ['TEST3@EXAMPLE.com', 'TEST3@example.com'],
             ['test4@example.com', 'test4@example.com'],
         ]
-        for email,expected in sample_emails:
+        for email, expected in sample_emails:
             user = get_user_model().objects.create_user(email, 'sample123')
             self.assertEqual(user.email, expected)
 
